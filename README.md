@@ -1,43 +1,60 @@
-# test-repo
+# 프로젝트 이름
 
-Google Colab에서 바로 실행할 수 있는 샘플 주피터 노트북 저장소입니다.
+> **이 README는 템플릿입니다.** 아래 항목을 프로젝트에 맞게 채우고,
+> 이 인용문과 안내 문구는 지우세요. 필요 없는 항목은 삭제해도 됩니다.
 
-## 노트북 열기
+한 줄 설명 — 이 저장소가 무엇을 하는 코드인지.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RIP-LAB-JEJUNU/test-repo/blob/main/hello.ipynb)
+## 개요
 
-위 배지를 누르면 `hello.ipynb`가 Colab에서 열립니다. 설치할 것은 없고, 구글 계정으로 로그인만 되어 있으면 됩니다.
+무엇을 위한 프로젝트인지, 어떤 문제를 푸는지 두세 문장으로.
+관련 논문이나 실험이 있다면 여기에 링크.
 
-## 노트북 구성 (`hello.ipynb`)
+## 환경
 
-| 단계 | 내용 |
-| --- | --- |
-| 1 | `print`로 첫 셀 실행해 보기 |
-| 2 | 파이썬 버전 · OS · Colab 여부 등 실행 환경 확인 |
-| 3 | `pandas`로 간단한 표 만들고 등급 계산 |
-| 4 | `matplotlib`으로 sin / cos 그래프 그리기 |
-| 5 | `!` 를 이용한 셸 명령 실행과 GPU 확인 |
+돌리는 데 필요한 것. 예:
 
-사용하는 `pandas`, `numpy`, `matplotlib`은 Colab에 기본 설치되어 있어 따로 설치할 필요가 없습니다.
+- Geant4 11.x / ROOT 6.x
+- Python 3.11 (`requirements.txt` 참조)
+- 클러스터 모듈: `module load ...`
 
-## 사용법
+## 실행 방법
 
-1. 위의 **Open In Colab** 배지를 클릭합니다.
-2. 셀을 위에서부터 차례대로 실행합니다 (`Shift + Enter`, 또는 **런타임 > 모두 실행**).
-3. 자유롭게 코드를 고쳐 보세요. Colab에서의 수정은 이 저장소에 영향을 주지 않습니다.
-   저장하려면 **파일 > Drive에 사본 저장**을 사용하세요.
-
-### GPU 사용하기
-
-**런타임 > 런타임 유형 변경 > 하드웨어 가속기**에서 GPU를 선택하면 5번 셀의 `nvidia-smi` 출력에서 할당된 GPU를 확인할 수 있습니다.
-
-## 로컬에서 실행하기
-
-Colab 없이 내 컴퓨터에서 실행하려면:
+처음 받은 사람이 그대로 따라 할 수 있게 명령어 단위로.
 
 ```bash
-git clone https://github.com/RIP-LAB-JEJUNU/test-repo.git
-cd test-repo
-pip install jupyter pandas numpy matplotlib
-jupyter notebook hello.ipynb
+# 예시
+cmake -S . -B build && cmake --build build
+./build/sim macros/run1.mac
+python scripts/analyze.py
 ```
+
+## 디렉터리 구조
+
+구조는 프로젝트마다 다릅니다. 이 저장소가 실제로 쓰는 것만 적으세요.
+
+```
+src/        소스
+include/    헤더
+macros/     Geant4 매크로 (.mac)
+scripts/    분석 · 그림 생성 코드
+```
+
+## 데이터
+
+**데이터와 그림은 저장소에 넣지 않습니다** (`.gitignore` 참조).
+실제 파일이 어디 있는지 여기에 적어두세요.
+
+```
+입력 데이터: /path/on/cluster/...
+출력 위치:   /path/on/cluster/...
+```
+
+## 그림
+
+논문·발표용 그림은 커밋하지 않고 코드로 재생성합니다.
+어떤 스크립트가 어떤 그림을 만드는지 적어두면 나중에 본인이 편합니다.
+
+| 그림 | 생성 스크립트 |
+| --- | --- |
+| Fig. 1 | `scripts/plot_spectrum.py` |
